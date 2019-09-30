@@ -1,0 +1,49 @@
+<table class="landing-page">
+  <tr>
+    <td class="text">
+      <h1>Give credit where credit's due</h1>
+      <h3>RateMyPeers is an online academic tool that helps students provide feedback for their teammates during group projects. Instructors set up the groups and can see the ratings to help them quickly notice and address any issues in the class.<h3>
+    </td>
+    <td class="media"> <%=  image_tag("info-12.png") %> </td>
+  </tr>
+</table>
+<table class="landing-page">
+  <tr>
+    <td class="media">
+      <%= video_tag("demo.webm",autoplay:true,loop:true,controls:true) %>
+    </td>
+    <td class="text">
+      <h1>How it works</h1>
+      <h3>Our intuitive design makes it easy to get the grade you deserve in no time at all. Take a look at the video to the left or the list below to get an idea of the workflow.</h3>
+      <ul>
+        <li>Instructor creates the class</li>
+        <li>Instructor creates groups and adds students to the groups</li>
+        <li>After each project, the students rate their teammates</li>
+        <li>Each student's overall score updates automatically based on team ratings</li>
+      </ul>
+    </td>
+  </tr>
+</table>
+<table class="landing-page">
+  <tr>
+    <td class="split">
+      <h1>Great for Students</h1>
+      <h3>Make sure that good teammates get rewarded, and bad ones don't get a grade they didnt earn. You'll have an overall rating that sticks with you forever, and you can see other students' ratings when choosing a group.</h3>
+    </td>
+    <td class="split">
+          <h1>Great for Instructors</h1>
+          <h3>Keep your class running smoothly and be confident that your students are getting the credit they earned. We help you discover problems as soon as they surface, so you can resolve them and focus on teaching.</h3>
+        </td>
+  </tr>
+</table>
+
+<%= link_to "Get Started Now!",new_user_registration_path,:class=>"get-started-button" %>
+<br><br><br><br><br>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	$(".content>*").unwrap()
+});
+</script>

@@ -1,0 +1,36 @@
+<% if !user_signed_in? %>
+      <h1>Peer Evaluations</h1>
+      <h1>There is an admin user created. Use test.1@osu.edu with password as the password</h1>
+      <ul>
+	<li><%= link_to "Register Now", new_user_registration_path, :class => "btn btn-default text-center" %><li>
+        <li>This is the index page which will provide you with instructions and how to use our website</li>
+        <li>For team members: In order to get more information, please go to app/views/welcomes/index.html.erb</li>
+        <li>Use the navigation bar above to get to the sign up and log in pages</li>
+        <li>Easy access to the index of peer evaluaton: <a href="/evaluations">Peer evaluation</a></li>
+      </ul>
+
+<% end %>
+
+
+<% if user_signed_in? and current_user.try(:admin?) %>
+	<h1>Welcome to the Peer Evaluation website by infinite_loop</h1>
+	<h2>You are signed in as an instructor</h2>
+	<h2>To get started, click here: <a href="/courses">Classes</a></h2>
+	<h2>Other important links:</h2>
+	<h3><a href="/welcomes">Home Page</a></h2>
+	<h3><a href="/courses">Course Page</a></h2>
+	<h3><a href="/groups">Groups Page</a></h2>
+	<h3><a href="/ratings">Ratings Page</a></h2>
+<% end %>
+
+
+<% if user_signed_in? and !current_user.try(:admin?) %>
+	<h1>Welcome to the Peer Evaluation website by infinite_loop</h1>
+	<h2>You are signed in as a student. To be an admin, go to terminal. Type in $ rails c. Change the admin boolean attribute to true</h2>
+	<h2>To get started, click here: <a href="/groups">Groups</a></h2>
+	<h2>Other important links:</h2>
+	<h3><a href="/welcomes">Home Page</a></h2>
+	<h3><a href="/courses">Course Page</a></h2>
+	<h3><a href="/groups">Groups Page</a></h2>
+	<h3><a href="/ratings">Ratings Page</a></h2>
+<% end %>

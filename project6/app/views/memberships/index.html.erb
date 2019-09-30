@@ -1,0 +1,26 @@
+<h1>Students in <%= Group.find(params[:group_id]).gname %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Student</th>
+      <th>Group</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @memberships.each do |m| %>
+      <% if Group.find(params[:group_id]).id == m.group_id %>
+        <tr>
+          <td><%= User.find(m.user_id).email %></td>
+          <td><%= Group.find(m.group_id).gname %></td>
+          <td><%= link_to 'Remove Student', m, method: :delete, data: { confirm: 'Are you sure?'}, :class=> "action" %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<br><%= link_to 'Back to Groups', groups_path %>
+<br><%= link_to 'Back to Classes', courses_path %>

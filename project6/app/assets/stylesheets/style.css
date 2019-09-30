@@ -1,0 +1,400 @@
+/*
+COLORS:
+light tan:  #F2F1E9
+tan:        #EDC39C
+gray:       #736E70
+dark gray:  #333
+light red:  #F5765E
+red:        #C73030
+*/
+
+html{
+  font-family: 'Roboto', sans-serif;
+  word-wrap: break-word;
+  background-color: #F2F1E9;
+  color: #333;
+text-align:center;
+}
+body{
+  margin: 0;
+  padding: 0;
+}
+.content{
+  padding: 50pt 10%;
+}
+h1{
+  font-weight: 900;
+  padding: 5pt 0;;
+  margin: 0;
+}
+h3{
+  font-weight: 400;
+  margin: 0;
+}
+.divforalerts{
+text-align:center;
+margin:40pt 0 ;
+color:#F2F1E9;
+border-radius:100pt;
+background-color:#333;
+padding:10pt;
+font-weight:600;
+}
+table tbody a.action{
+display:block;
+text-align:center;
+transition:.2s;
+}
+a.new{
+font-size:14pt;
+display:inline-block;
+text-align:center;
+border-radius:50px;
+border: 2px solid #F5765E;
+padding:2px 8px;
+margin: 2px;
+transition:.2s;
+color: #333;
+}
+a.new:hover{
+background-color: #F5765E
+}
+a.new::before{
+font-size:18pt;
+vertical-align:-1px;
+content:"+ "
+}
+table:not(.landing-page){
+width:100%;
+border-collapse:collapse;
+border: 2px solid #F5765E;
+}
+
+thead tr{
+background-color:#F5765E;
+font-weight:500;
+}
+
+tbody tr:nth-child(even){
+background-color:white;
+}
+
+th{
+color:#F2F1E9;
+background-color:#F5765E;
+}
+
+td,th{
+padding:10pt;
+text-align:center;
+
+}
+
+/* start of nav */
+
+nav{
+  width: 100%;
+  margin:0 0 20pt 0;
+  padding:0;
+  background-color: #333;
+  position: relative;
+  z-index: 1000;
+  position:fixed;
+  text-align: right;
+	top:0;
+  color:#F2F1E9;
+  font-size: 11pt;
+  font-weight: 400;
+  font-family: 'Montserrat', sans-serif;
+}
+nav .links{
+  width: 80%;
+  margin: 0 auto;
+}
+@media screen and (max-width: 800px){
+  nav .links{
+    width: 100%;
+    min-width: 300pt;
+  }
+  nav #user{
+    margin-right: 0;
+  }
+}
+nav a{
+  text-decoration: none;
+  display: inline-block;
+  color:#dddddd;
+  padding: 12pt;
+  margin: 0;
+  position: relative;
+}
+nav a:hover{
+  color: #ffffff;
+}
+nav .logo{
+  margin: 1pt;
+  margin-left: 5pt;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+}
+.logo *{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  vertical-align:middle;
+  width: 30pt;
+}
+nav a.title{
+  float: left;
+  margin-left: 40pt;
+  font-size: 12pt;
+  font-weight: 500;
+}
+nav .profile-pic{
+  margin: 2pt;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  right: 0
+}
+.profile-pic *{
+  border-radius: 50%;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+.user{
+  position: relative;
+  display: inline-block;
+}
+#username{
+  margin-right: 40pt;
+}
+.user .options{
+  text-align: left;
+  display: none;
+  background-color: rgba(51,51,51,.85);
+  position: absolute;
+  top: 37.5pt;
+  right: 0;
+  max-width:190px;
+}
+.user:hover .options{
+  display: block;
+}
+
+/* end of nav */
+
+
+.login,.signup,.eval{
+  text-align: center;
+}
+.field *{
+  margin: 5pt;
+}
+input[type="email"],input[type="password"],input[type="submit"],input[type="text"],select{
+  padding: 5pt;
+  margin: 10pt 0;
+  font-size: 12pt;
+  border-radius: 20pt;
+  border: 2px solid #F5765E;
+  text-align: center;
+  outline: none;
+  font-family: roboto;
+  background: none;
+}
+input[type="email"],input[type="password"],input[type="text"],select{
+  width: 200pt;
+  transition: .2s;
+}
+option{
+text-align: center;
+border:none;
+background-color:#33333375;
+}
+option:hover,option:focus{
+background-color:#333333;
+}
+input[type="email"]:focus,input[type="password"]:focus,input[type="text"]:focus,select:focus{
+  width: 275pt;
+  border: 2px solid #C73030;
+}
+input[type="submit"]{
+  margin: 10pt;
+  padding: 5pt 20pt;
+
+  transition: .1s;
+  border: 2px solid #F5765E;
+}
+input[type="submit"]:hover{
+  background-color: #F5765E;
+}
+a{
+  text-decoration: none;
+  color: #0d70c4;
+}
+a:hover{
+  color: #003b6d;
+}
+
+/* Eval page */
+.eval form{
+  margin: 30pt 0;
+}
+.eval form label{
+  display: block;
+  font-size: 16pt;
+  margin: 10pt;
+  font-weight: 500;
+}
+
+.eval form textarea{
+  border: 4px solid #F5765E;
+  background: none;
+  border-radius: 15pt;
+  padding: 15pt;
+  outline: none;
+  font-size: 14pt;
+  font-family: Roboto, sans-serif;
+  transition: .2s;
+  width: 70%;
+}
+.eval form textarea:focus{
+  border: 4px solid #C73030;
+  padding: 15pt 50pt;
+}
+.eval form label[for=radio]{
+  font-size: 12pt;
+  display: inline;
+  font-weight: 400;
+}
+.eval form input[type=submit]{
+  border: 4px solid #F5765E;
+  border-radius: 50pt;
+  outline: none;
+  padding: 10pt;
+  margin: 20pt;
+  font-size: 16pt;
+  font-weight: 600;
+  font-family: Roboto, sans-serif;
+}
+
+.score{
+  font-size: 60pt;
+}
+.score::after{
+  content: "/10";
+  font-size: 30pt;
+}
+
+.slide-container {
+  width: 100%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 10px;
+  border-radius: 25px;
+  background: #736E70;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #C73030;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #C73030;
+  cursor: pointer;
+}
+/* Eval page */
+
+table.landing-page{
+  width:100%;
+  max-width:1200pt;
+  margin: 0 auto;
+	text-align:left;
+}
+.how-it-works{
+  text-align: center;
+}
+.landing-page td{
+  padding:70pt 25pt;
+  /* background-color: #00ff0050; */
+}
+.landing-page td.media{
+  width: 60%;
+text-align:left;
+
+  /* background-color:#ff000050; */
+}
+.landing-page td:nth-child(2).media{
+    text-align: right;
+}
+.landing-page td.text{
+  width: 40%;
+text-align:left;
+  /* background-color: #00ff0050; */
+}
+.landing-page td.split{
+  width: 50%;
+text-align:left;
+}
+.landing-page td.media *{
+  width: 100%;
+  border-radius: 10pt;
+  max-width: 450pt;
+  box-shadow: 0px 0px 50px -15px rgba(0,0,0,1);
+  transition: .5s;
+}
+.landing-page td.media video{
+  border: 4pt solid white;
+  outline: none;
+}
+.landing-page td.media *:hover{
+  transform: scale(1.1);
+}
+.get-started-button{
+  font-weight: 800;
+  font-size: 28pt;
+  padding:10pt;
+  width: 300pt;
+  text-align: center;
+  display: block;
+  margin: 25pt auto;
+  border: 5pt solid #F5765E;
+  border-radius: 100pt;
+  color: #333;
+  transition: .2s;
+}
+.get-started-button:hover{
+  background-color: #F5765E;
+  color: #333;
+}
+.landing-page ul{
+  padding-left: 15pt;
+}
+.landing-page li{
+  font-size: 16pt;
+  font-weight: 600;
+  padding: 5pt 0;
+  list-style:circle;
+}

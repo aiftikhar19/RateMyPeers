@@ -1,0 +1,30 @@
+<%= form_with(model: course, local: true) do |form| %>
+  <% if course.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(course.errors.count, "error") %> prohibited this course from being saved:</h2>
+
+      <ul>
+      <% course.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <% semester =[['SP19','SP19'],['SU19','SU19'],['AU19','AU19'],['SP20','SP20'],['SU20','SU20'],['AU20','AU20']] %>
+
+  <div class="field">
+    <%= form.label :Name %>
+    <%= form.text_field :cname %>
+    <%= form.hidden_field :user_id, :value => current_user.id  %>
+  </div>
+
+  <div class="field">
+
+    <%= form.label :semester %>
+    <%= select_tag(:semester, options_for_select(semester), :prompt => "Select") %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Create Class", :class => "btn btn-default" %>
+  </div>
+<% end %>

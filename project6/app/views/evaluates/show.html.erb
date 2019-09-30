@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Attempt:</strong>
+  <%= @evaluate.attempt %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @evaluate.user_id %>
+</p>
+
+<p>
+  <strong>Ratee:</strong>
+  <%= @evaluate.ratee_id %>
+</p>
+
+<p>
+  <strong>Group:</strong>
+  <%= @evaluate.group_id %>
+</p>
+
+<%= link_to 'Edit', edit_evaluate_path(@evaluate) %> |
+<%= link_to 'Back', evaluates_path %>

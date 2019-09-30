@@ -1,0 +1,16 @@
+<h1><%= @course.cname %> - <%= @course.semester %></h1>
+ 
+<h2>Groups:</h2>
+<% if @course.group_ids.length == 0 %>
+	<h2>There are currently no groups in this class</h2>
+<% end %>
+
+<table><tbody>
+<% for i in 0...@course.group_ids.length %>
+	
+	<tr><td><h3><%= link_to Group.find(@course.group_ids[i]).gname, memberships_path(:group_id => @course.group_ids[i])  %>	</h3></td></tr>
+<% end %>
+</tbody></table>
+<br><%= link_to 'New Group', new_group_path(:course_id => @course.id), :class => "new" %>
+<br><%= link_to 'Go to Groups', groups_path %>
+<br><%= link_to 'Go to Classes', courses_path, :class => "btn btn-default" %>

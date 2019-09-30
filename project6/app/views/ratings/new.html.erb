@@ -1,0 +1,49 @@
+<div class="eval">
+<h1>Peer Evaluation for <%= User.find(Evaluate.find(params[:evaluate_id]).ratee_id).Fname %> <%= User.find(Evaluate.find(params[:evaluate_id]).ratee_id).Lname %></h1>
+<h3><%= Group.find(Evaluate.find(params[:evaluate_id]).group_id).gname.upcase %> - <%= Course.find(Group.find(Evaluate.find(params[:evaluate_id]).group_id).course_id).semester %> <%= Course.find(Group.find(Evaluate.find(params[:evaluate_id]).group_id).course_id).cname.upcase %></h3>
+<%= form_with(model: @rating, local: true) do |form| %>
+  <% if @rating.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@rating.errors.count, "error") %> prohibited this rating from being saved:</h2>
+
+      <ul>
+      <% @rating.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.hidden_field :evaluate_id, :value => Evaluate.find(params[:evaluate_id]).id, :readonly =>true %>
+    <%= form.hidden_field :ratee_id, :value => Evaluate.find(params[:evaluate_id]).user_id, :readonly =>true %>
+    <%= form.hidden_field :group_id, :value => Evaluate.find(params[:evaluate_id]).group_id, :readonly =>true %>
+    <%= form.hidden_field :user_id, :value => current_user.id  %>
+  </div>
+
+  <div class="field">
+    <div class="slide-container">
+      <label>Overall Rating: <br> <span class="score"></span></label>
+	<%= form.range_field :score, :min=>0, :max=>10, :class=>"slider", :value=>5%>
+    </div>
+  </div><br><br>
+
+  <div class="field">
+    <label>Comments on <%=(User.find(Evaluate.find(params[:evaluate_id]).ratee_id).Fname).capitalize%>'s performance:</label>
+    <%= form.text_area :comments, :rows=>8 %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Submit Evaluation"%><br>
+    <%= link_to 'Back', evaluates_path %>
+  </div>
+
+<% end %>
+</div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+$(document).ready(function(){
+  $(".slide-container .score").text($(".slider").val());
+  $(".slider").on("input",function(){$(".slide-container .score").text($(".slider").val());})});
+</script>
+

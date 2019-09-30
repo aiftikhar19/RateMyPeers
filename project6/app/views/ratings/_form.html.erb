@@ -1,0 +1,46 @@
+<%= form_with(model: rating, local: true) do |form| %>
+  <% if rating.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(rating.errors.count, "error") %> prohibited this rating from being saved:</h2>
+
+      <ul>
+      <% rating.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= form.label "Evaluate ID" %>
+    <%= form.number_field :evaluate_id, :value => Evaluate.find(params[:evaluate_id]).id, :readonly => true %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Rater:" %>
+    <%= User.find(Evaluate.find(params[:evaluate_id]).user_id).Fname %> <%= User.find(Evaluate.find(params[:evaluate_id]).user_id).Lname %>
+    <%= form.hidden_field :user_id, :value => Evaluate.find(params[:evaluate_id]).user_id, :readonly =>true %>
+  </div>
+  Ratee: <%= User.find(Evaluate.find(params[:evaluate_id]).ratee_id).Fname %> <%= User.find(Evaluate.find(params[:evaluate_id]).ratee_id).Lname %><br>
+
+  <div class="field">
+    <%= form.label "Group:" %>
+    <%= Group.find(Evaluate.find(params[:evaluate_id]).group_id).gname %>
+    <%= form.hidden_field :group_id, :value => Evaluate.find(params[:evaluate_id]).group_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :score %><br>
+    <%= form.select :score, (0..10) %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Additional Comments" %><br>
+    <%= form.text_field :comments %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Submit Evaluation", :class => "btn btn-primary" %><br>
+    <%= link_to 'Back to Evaluations', evaluates_path, :class => "btn btn-default" %>
+  </div>
+
+<% end %>

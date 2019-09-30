@@ -1,0 +1,26 @@
+<h1>Your Evaluation</h1>
+<br>
+<table>
+<thead>
+    <tr>
+      <th>Group</th>
+      <th>Rated</th>
+      <th>Score</th>
+      <th>Comments</th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <tr>
+          <td><%= Group.find(@rating.group_id).gname %></td>
+          <td><%= User.find(Evaluate.find(@rating.evaluate_id).ratee_id).Fname %> <%= User.find(Evaluate.find(@rating.evaluate_id).ratee_id).Lname %></td>
+          <td><%= @rating.score %></td>
+          <td><%= @rating.comments %></td>
+      </tr>
+  </tbody>
+</table>
+<% Evaluate.find(@rating.evaluate_id).update_attribute :attempt, true %>
+
+<br>
+
+<%= link_to 'Back', groups_path %>

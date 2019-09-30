@@ -1,0 +1,20 @@
+  <nav>
+    <div class="links">
+       <div class="logo">
+	<%= link_to image_tag("logo.svg")%>
+      </div>
+      <%= link_to "RateMyPeers",root_path,class:"title" %>
+	<%= link_to 'Groups', groups_path %>
+	<%= link_to 'Classes', courses_path %>
+      <div class="user">
+        <a href="" id="username"><%= current_user.email %></a>
+          <div class="profile-pic">
+                <%= link_to image_tag("default-pic.svg")%>
+          </div>
+        <div class="options">
+          <a href="/users/edit">Settings</a>
+          <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+        </div>
+      </div>
+    </div>
+  </nav>

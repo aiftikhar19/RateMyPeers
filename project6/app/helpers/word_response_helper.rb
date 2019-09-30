@@ -1,0 +1,2 @@
+module WordResponseHelper
+end

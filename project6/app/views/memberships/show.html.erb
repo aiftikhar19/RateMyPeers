@@ -1,0 +1,3 @@
+<h1><strong><%= User.find(@membership.user_id).email %></strong> has been added to <strong><%= Group.find(@membership.group_id).gname %></strong></h1><br>
+
+<%= link_to 'Back to Groups', groups_path %>

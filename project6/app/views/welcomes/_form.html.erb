@@ -1,0 +1,34 @@
+<%= form_with(model: welcome, local: true) do |form| %>
+  <% if welcome.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(welcome.errors.count, "error") %> prohibited this welcome from being saved:</h2>
+
+      <ul>
+      <% welcome.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <h1>Evaluations created!</h1>
+
+  <% @users = User.all.collect %>
+  <% @members = [] %>
+  <% for i in 0...Group.find(params[:group_id]).membership_ids.length %>
+    <% @users.each do |user| %>
+      <% if user.membership_ids.include? Group.find(params[:group_id]).membership_ids[i] %>
+      <% @members.push user %>
+    <% end %>
+    <% end %>
+  <% end %>
+
+  <% @members.each_with_index do |member, n|  %>
+    <% @members.each_with_index do |member, m| %>
+      <% @eval = Evaluate.new(:group_id => Group.find(params[:group_id]).id, :user_id => @members[n].id, :ratee_id => @members[m].id, :attempt => false) %>
+      <% @eval.save %>
+    <% end %>
+  <% end %>
+
+  <br><%= link_to 'Back to Groups', groups_path, :class => "btn btn-default" %>
+  <br><%= link_to 'Back to Classes', courses_path, :class => "btn btn-default" %>
+<% end %>

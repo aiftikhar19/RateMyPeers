@@ -1,0 +1,27 @@
+<h1>Evaluations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Group</th>
+      <th>Group Member</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @evaluates.each do |e| %>
+
+      <% if (e.user_id == current_user.id and e.attempt == false) or current_user.try(:admin?) %>
+        <tr>
+          <td><%= Group.find(e.group_id).gname %></td>
+          <td><%= User.find(e.ratee_id).Fname %> <%= User.find(e.ratee_id).Lname %></td>
+          <td><%= link_to 'Rate', new_rating_path(:evaluate_id => e.id), :class => "btn btn-primary" %>
+              <% if current_user.try(:admin?) %>
+                <br><%= link_to 'Destroy', e, method: :delete, data: { confirm: 'Are you sure?' } %><br> </td>
+              <% end %>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
